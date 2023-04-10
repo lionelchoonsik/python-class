@@ -1,29 +1,35 @@
-a=int(input("과자의 개수 : "))
-b=int(input("한 사람당 나누어주는 과자의 개수 : "))
-c=a//b
-d=a%b
-print("\n최대",c,"명에게 나누어줄 수 있습니다.")
-print("남는 과자는",d,"개입니다.")
-print("\n")
-a=int(input("삼각형 첫 번째 변의 길이: "))
-b=int(input("삼각형 두 번째 변의 길이: "))
-c=(a+b)-1
-print("삼각형의 나머지 변의 최대길이: ",c)
-print("\n")
-a=int(input("시간을 입력하세요: "))
-b=int(input("분을 입력하세요: "))
-c=(a*60*60)+(b*60)
-print(a,"시간",b,"분은",c,"초입니다.")
-print("\n")
-a=int(input("x의 값을 입력하세요: "))
-b=int(input("y의 값을 입력하세요: "))
-c=(a+b)*(a+b)
-print("(",a,"+",b,")","^","2","=",c)
-print("\n")
-a=int(input("정수 => "))
-b=a//1000 #천자리수
-c=a%1000//100
-d=a%1000%100//10
-e=a%1000%100%10
-print("합계 : ",b+c+d+e)
 
+#1번
+i=0
+for i in range(2,51,2):
+    if i%2==0:
+        print(i,end=" ")
+print("\n")
+
+#2번
+
+hap=0
+for i in [11,22,23,99,81,93,35]:
+    hap=hap+i
+print("정수들의 합은",hap)
+print("\n")
+
+#3번
+a=int(input("정수를 입력하시오 :"))
+print("약수 : ",end="")
+for i in range(1,a+1):
+    if a%i==0:
+        print(i,end=' ')
+print("\n") 
+#4번
+for i in range(1,6):
+    for k in range(1,i+1):
+        print(k,end=" ")
+    print()
+print("\n")    
+#5번
+a=1.609
+for i in range(1,11,1):
+    print("마일","    ","킬로미터")
+    print(i,"   ","%10.3f"%(i*a))
+    print()
