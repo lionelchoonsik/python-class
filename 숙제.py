@@ -28,8 +28,8 @@ for i in range(1,6):
     print()
 print("\n")    
 #5번
-a=1.609
-for i in range(1,11,1):
-    print("마일","    ","킬로미터")
-    print(i,"   ","%10.3f"%(i*a))
+i=1.609
+for a in range(1,11,1):
+    print("마일","%10s"%("킬로미터"))
+    print("%-7s"%(a),"%10s"%(a*i))
     print()
