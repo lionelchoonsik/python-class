@@ -1,78 +1,199 @@
+num=[10,20,30,40,50,60,70]
+print(num[0])
+print(num[-1])
+print(num[::2]) # 처음부터 끝까지 다 출력하는건데 2칸식 건너뛰고출력하는거
+print(num[1:3])
 
-#num 선언해서 덧셈구하기
-num=[0,0,0,0] #초기화
-hap=0
-num[0]=int(input("숫자를 입력하시오: "))
-num[1]=int(input("숫자를 입력하시오: "))
-num[2]=int(input("숫자를 입력하시오: "))
-num[3]=int(input("숫자를 입력하시오: "))
-hap=num[0]+num[1]+num[2]+num[3]
-print(hap)
-print("\n")
-
-#위에꺼를 for문으로 바꾼거
-num=[]
-hap=0
-for i in range(0,4):
-    num.append(0)#append :끝에 ()안에 든 숫자를 추가해주는것
-        #0,1,2,3 개의 공간에 0을 넣어서 초기화해준거랑 똑같음
-
-for i in range(0,4):
-    num[i]=int(input("숫자를 입력하시오: "))#내가 초기화한 0,0,0,0->을 내가 입력한것으로 바꾸는 과정
-hap=num[0]+num[1]+num[2]+num[3]
-print("합계는",hap)   
-print("\n")
-
-num=[]
-hap=0
-for i in range(0,4):
-    num.append(0)#append :끝에 ()안에 든 숫자를 추가해주는것
-        #0,1,2,3 개의 공간에 0을 넣어서 초기화해준거랑 똑같음
-
-for i in range(0,4):
-    num[i]=int(input("숫자를 입력하시오: "))#내가 초기화한 0,0,0,0->을 내가 입력한것으로 바꾸는 과정
-hap=num[0]+num[1]+num[2]+num[3] # ※참조
-print("합계는",hap)   
-print("\n")
-# ※참조 hap=num[0]+num[1]+num[2]+num[3] => hap=hap+num[i] 로 바꿀수있음
-
-#append() 추가해주는 함수
-a=[1,2,3]
-a.append(4)
-print(a)
-"""[1, 2, 3, 4]"""
-
-#역순으로 값을 가져올때
-a=[1,2,3,4]
-print(a[-1]) #4가 출력됨
-
-num=[10,20,30,40]
-print(num[-1],num[-2],num[-3],num[-0]) #40 30 20 10 이렇게 역순으로 출력
-print("\n")
-
-# :(콜론)을 사용하여 범위지정 :[시작 : 끝+1] ★끝+1 하는게 중요!!
-b=[1,2,3,4,5]
-print(b[:4]) # [1, 2, 3, 4] 이건 0번부터 3번까지 출력하라는 뜻
-
-#리스트의 덧셈 = 더하는게 아니라 걍 리스트끼리 합쳐지게됨
-a=[1,2,3]
-b=[4,5,6]
-print(a+b)
 """
-[1, 2, 3, 4, 5, 6]
+10
+70
+[10, 30, 50, 70]
+[20, 30]
+"""
+num2=[1,2,5]
+num2[1:2]=[3,4] #1번부터 2번자리에3,4를 넣는것
+print(num2)
+"""
+[1, 3, 4, 5]
+"""
+num2[4:5]=[6,7,8,9]
+print(num2)
+"""
+[1, 3, 4, 5, 6, 7, 8, 9]
+"""
+#append(추가하려는 값) : 맨 뒤에 값 추가하기
+#insert(추가하려는 위치,값) : 정해진 위치에 값 삽입
+
+num=[10,20,30]
+num.insert(1,123) #1번자리에 123 삽입
+print(num)
+"""
+[10, 123, 20, 30]
+"""
+#del(num[삭제하고 싶은 함수의 번호]) : 리스트의 항목 삭제
+num=[10,20,30]
+del(num[1])
+print(num)
+"""[10, 30]"""
+
+#remove(지울 값) : 리스트에서 특정 값 삭제
+num=[10,20,30]
+num.remove(10) #리스트에서 10을 지우라는 뜻
+print(num)
+
+num=[10,10,10,20,30] #10이 3개나..?!
+num.remove(10) #리스트에서 10을 지우라는 뜻, 근데 10이 많으면 전부 다 지워지는게 아니라 한개만 지워짐!
+print(num)
+"""
+[10, 10, 20, 30]
+"""
+#pop() 제일 뒤의 값을 뽑아내서 값을 알려준 뒤 삭제
+num=[10,20,30]
+num.pop()
+print(num)
+"""[10, 20]"""
+
+#count(찾을 값) : 찾을 값이 몇 개인지 개수를 세서 알려줌
+num=[10,20,30,10,40,10,101,10,10]
+num.count(10) #num에서 10은 몇개 있는가?
+print(int(num.count(10)))
+"""5"""
+#sort() : 리스트의 값을 정렬함
+num=[10,45,23,13,678,42,45,22] #작은 순서대로 정렬해줌
+num.sort()
+print(num)
+"""[10, 13, 22, 23, 42, 45, 45, 678]"""
+
+num=["apple","banana","orange","mango"]
+print(num.sort())
+#sort(reverse=True) : 내림차순으로 정렬
+num=[20,40,10,30,14]
+num.sort(reverse=True)
+print(num)
+"""[40, 30, 20, 14, 10]"""
+#reverse() : 그냥 위치를 반대로 바꿔주는거.. 뒤집뒤집.
+num=[20,40,10,30,14]
+num.reverse()
+print(num)
+"""[14, 30, 10, 40, 20]"""
+#copy() : 복사
+num=[20,40,10,30,14]
+num2=num.copy()
+print(num2) #num2에게 num 의 복사본이 대입됨
+"""num=[20,40,10,30,14]"""
+#2차원 list
+num3=[[1,2,3,4],
+     [5,6,7,8],
+     [9,10,11,12]]
+for i in range(0,3): #행
+    for k in range(0,4): # 열
+        print(" ","%3d"%num3[i][k],end=" ")
+    print(" ")
+    """
+    1     2     3     4  
+    5     6     7     8  
+    9    10    11    12
+    """
+#4행 5열의 2차원 리스트를 만들고 0부터 3의 배수를 입력하고 출력하도록 하라 => ★어려움!
+num=[]
+num2=[]
+value=0 # => 0부터 시작하니까 value에 0을 넣어준것
+for i in range(0,4):
+    for k in range(0,5):
+        num.append(value)
+        value+=3
+    num2.append(num)
+    num=[]
+for i in range(0,4): #0,1,2,3 이렇게 총 4행임 range(시작수,마지막수-1)
+    for k in range(0,5):
+        print(" ","%3d"%num2[i][k],end=" ")
+    print(" ")
+"""
+0     3     6     9    12  
+15    18    21    24    27  
+30    33    36    39    42  
+45    48    51    54    57
+"""
+#리스트함축 . 프린트07 17페이지★어려움! 꼭 복습하기
+list=[]
+for i in range(0,11):
+    list.append(i*i)
+    print("","%2d"%i,end="")
 """
 
-#리스트의 곱셈 = 이것도 연산되는게 아니라 곱해진 수만큼 반복됨
-a=[1,2,3]
-print(a*3)
-print("\n")
-"""[1, 2, 3, 1, 2, 3, 1, 2, 3]"""
+0  1  2  3  4  5  6  7  8  9 10
+"""
+#조건연산자
+#cost=0 if price>=2000 else 3000 =>price가 2000이 넘으면 cost에 0을 넣고 아니라면 3000을 넣어라
+    
 
-#여러개의 명언을 리스트에 저장해놓고 저장된 명언을 랜덤하게 출력하는 코드를 작성해라
+#0부터 99까지의 정수 중에서 2의 배수이고 동시에 3의 배수인 수들을 모아 리스트 함축을 사용하여 리스트로 만들어보라
+num=[x for x in range(0,100) if x%2==0 and x%3==0]
+print(num)
+"""
+[0, 6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96]
+"""
+
+#심사위원점수구하기 07-22페이지 밑은 내가 한거
+"""
+print("홍길동 선수 경기 끝났습니다~~")
+a=int(input("평가 점수 ==>"))
+b=int(input("평가 점수 ==>"))
+c=int(input("평가 점수 ==>"))
+d=int(input("평가 점수 ==>"))
+e=int(input("평가 점수 ==>"))
+f=(a+b+c+d+e)/5
+print("심사위원 평균 점수 :","%.1f"%f)
+"""
+#정답;;
+"""
+print("홍길동 선수 경기 끝났습니다~~")
+score=[]
+for i in range(0,5):
+    jumsu=int(input("평가 점수 ==>"))
+    score.append(jumsu)
+hap=0
+for i in range(0,):
+    hap+=score[i]
+average=hap/5
+print("심사위원 평균 점수 :",avg)
+"""
+#두개의 컴퓨터끼리 가위바위보하기
 import random
-a=["언제나 현재에 집중할 수 있다면 행복할 것이다","가는말이고와야 오는말이곱다","공부를 안하면 시험이 망한다"]
-count=random.randint(0,len(a)-1) #-1 인 이유: 0부터니까...
-print("오늘의 명언=> ",a[count])
+toss=[]
+for i in range(0,10000):
+    a=random.choice(["가위","바위","보"])
+    b=random.choice(["가위","바위","보"])
+    if a=="가위":
+        if b=="가위":
+            toss.append("비김")
+        elif b=="바위":
+            toss.append("B")
+        elif b=="보":
+            toss.append("A")
+    elif a=="바위":
+        if b=="가위":
+            toss.append("A")
+        elif b=="바위":
+            toss.append("비김")
+        elif b=="보":
+            toss.append("B")
+    elif a=="보":
+        if b=="가위":
+            toss.append("B")
+        elif b=="바위":
+            toss.append("A")
+        elif b=="보":
+            toss.append("비김")
+Awin=toss.count("A")
+Bwin=toss.count("B")
+nowin=toss.count("비김")
+
+print("A 컴퓨터의 승리횟수는?: ",Awin)
+print("B 컴퓨터의 승리횟수는?: ",Bwin)
+print("비긴 횟수는?: ",nowin)
 """
-오늘의 명언=>  가는말이고와야 오는말이곱다
+A 컴퓨터의 승리횟수는?:  3347
+B 컴퓨터의 승리횟수는?:  3420
+비긴 횟수는?:  3233
 """
